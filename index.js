@@ -3,7 +3,6 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const path = require("path");
 const bodyParser = require("body-parser");
-const chalk = require('chalk')
 require("dotenv").config();
 
 const app = express();
@@ -15,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(require("./routes/user"));
+app.use(require("./routes/admin"));
 
 
 const db = require('./config/keys').mongoURI;
@@ -25,8 +25,8 @@ mongoose
   autoIndex: false,
   useFindAndModify: false,
 })
-.then(() => console.log(chalk.greenBright("Database Connected")))
-.catch((err) => console.log(chalk.redBright("Database error: " + err)));
+.then(() => console.log("Database Connected"))
+.catch(err => console.log("Database error: " + err));
 
 // console.log("dataase: " + db)
 // console.log("port: " + port)
@@ -40,5 +40,5 @@ app.get("*", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(chalk.greenBright("Server is online"));
+  console.log("Server is online");
 });
