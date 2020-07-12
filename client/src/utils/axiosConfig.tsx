@@ -1,2 +1,10 @@
-export const userConfig = {headers : { UserAuthorization: "Bearer " + localStorage.getItem('userToken') }};
-export const adminConfig = {headers : { AdminAuthorization: "Bearer " + localStorage.getItem('adminToken') }};
+import {AxiosRequestConfig} from 'axios'
+export const getConfig = (type: string): AxiosRequestConfig | undefined => {
+         if (type === "admin") {
+           const token = localStorage.getItem("adminToken");
+           return { headers: { AdminAuthorization: "Bearer " + token } };
+         } else if (type === "user") {
+           const token = localStorage.getItem("userToken");
+           return { headers: { UserAuthorization: "Bearer " + token } };
+         }
+       };

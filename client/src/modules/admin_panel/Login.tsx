@@ -1,11 +1,15 @@
 import React,{useState} from 'react'
 import axios from 'axios'
+import {useHistory} from 'react-router-dom'
 
 const Login = () =>{
+
+const history = useHistory()
 
 const sendData = () => {
   axios.post("/Admin/Login", data).then(res=>{
     localStorage.setItem('adminToken',res.data)
+    history.push('/Admin')
   });
 }
 

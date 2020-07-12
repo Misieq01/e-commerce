@@ -1,19 +1,33 @@
-import React from 'react'
-import {Route,Switch,useLocation} from 'react-router-dom'
+import React from "react";
+import { Switch, useLocation } from "react-router-dom";
+import CustomRoute from "../../components/CustomRoute";
 
-import Login from './Login'
-import Panel from './Panel'
+import Login from "./Login";
+import Panel from "./Panel";
 
+const AdminPanelCore = () => {
+  const location = useLocation().pathname;
 
-const AdminPanelCore = () =>{
+  console.log(location);
 
-    const location = useLocation().pathname
-
-    console.log(location)
-
-    return <Switch>
-        <Route path={location + '/'} component={localStorage.getItem('adminToken') ? Panel : Login} />
+  return (
+    <Switch>
+    <CustomRoute
+      path={"/Admin/Login"}
+      component={Login}
+      token={localStorage.getItem("adminToken")}
+      redirectPath={"/Admin"}
+      isPrivate={false}
+    />
+      <CustomRoute
+        path="/Admin"
+        redirectPath={"/Admin/Login"}
+        token={localStorage.getItem("adminToken")}
+        component={Panel}
+        isPrivate={true}
+      />
     </Switch>
-}
+  );
+};
 
-export default AdminPanelCore
+export default AdminPanelCore;

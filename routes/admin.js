@@ -29,8 +29,6 @@ router.post("/Admin/Login", async (req, res) => {
 });
 router.post("/Admin/Logout", Authentication, async (req, res) => {
   try {
-    console.log("something");
-    console.log(req.admin);
     req.admin.tokens = req.admin.tokens.filter((token) => token.token !== req.token);
     await req.admin.save();
     res.status(200).send();

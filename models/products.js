@@ -6,7 +6,10 @@ const productSchema = mongoose.Schema({
     category: {type: String,default: 'others',required: true},
     price: {type: Number,required: true},
     quantity: {type: Number,required:true},
-    image: {type: Buffer,required: true}
+    image: {type: Buffer,required: true},
+    custom: [
+        {name: {type: String}, value: {type: mongoose.Schema.Types.Mixed}}
+    ]
 
 })
 

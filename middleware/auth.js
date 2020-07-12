@@ -1,8 +1,8 @@
 const jwt = require("jsonwebtoken");
-const Admin = require("../models/admins");
 
 module.exports = (name,model,header) => async (req, res, next) => {
   try {
+    console.log(req.header(header))
       const token = req.header(header).replace("Bearer ", "");
       const decode = jwt.verify(token, "venividivici");
       const result = await model.findOne({ _id: decode._id, "tokens.token": token });
