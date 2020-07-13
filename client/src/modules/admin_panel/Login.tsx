@@ -9,7 +9,7 @@ const history = useHistory()
 const sendData = () => {
   axios.post("/Admin/Login", data).then(res=>{
     localStorage.setItem('adminToken',res.data)
-    history.push('/Admin')
+    history.push('/Admin/Dashboard')
   });
 }
 

@@ -1,2 +1,6 @@
 @import './variables.scss';
+@import './utilis.scss';
 @import './main.scss';
+
+@import './modules/admin_panel/admin_navigation.scss';
+@import './modules/admin_panel/admin_panel.scss'
