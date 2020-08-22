@@ -4,15 +4,21 @@ import './styles/index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import axios from 'axios'
+import {rootReducer} from './store/reducers/rootReducer'
+import {createStore,applyMiddleware} from 'redux'
+import {Provider} from 'react-redux'
+import thunk from 'redux-thunk'
+import logger from 'redux-logger'
 
 axios.defaults.baseURL =
   process.env.NODE_ENV === "production" ? "https://bartek-e-commerce.herokuapp.com" : "http://localhost:4000";
 
+const store = createStore(rootReducer, applyMiddleware(thunk,logger));
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}><App /></Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

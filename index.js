@@ -15,6 +15,8 @@ app.use(bodyParser.json());
 
 app.use(require("./routes/user"));
 app.use(require("./routes/admin"));
+app.use(require("./routes/product"));
+app.use(require("./routes/category"));
 
 
 const db = require('./config/keys').mongoURI;
@@ -34,6 +36,7 @@ mongoose
 
 
 app.use(express.static(path.join(__dirname, "/client/build")));
+app.use("/images", express.static(path.join(__dirname,"/public/uploads")));
 //
 app.get("*", (req, res) => {
   res.sendFile(__dirname + "/client/build/index.html");

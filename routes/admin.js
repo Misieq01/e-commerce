@@ -1,6 +1,6 @@
 const express = require("express");
 const Admin = require("../models/admins");
-const Authentication = require("../middleware/auth")("admin", Admin, "AdminAuthorization");
+const Authentication = require("../middleware/auth")("admin");
 
 const router = express.Router();
 

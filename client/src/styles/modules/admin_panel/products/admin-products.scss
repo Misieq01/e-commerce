@@ -1,0 +1,17 @@
+.admin-product-panel{
+    &__container{
+        @include flex(column wrap, space-around,space-around);
+        width: 100%;
+        height: auto;
+    }
+}
+
+.admin-product-panel{
+    &__container{
+        width: 100%;
+    }
+    &__img{
+        width: 100px;
+        height: 100px;
+    }
+}
