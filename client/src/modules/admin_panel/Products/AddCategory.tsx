@@ -6,6 +6,7 @@ import {addCategory} from '../../../store/actions/categoryActions'
 import {ICategory,IFetchCategories} from '../../../store/types/categoryTypes'
 import {IRootState} from '../../../store/types/rootStateType'
 import Background from '../../../components/Background'
+import {routes} from '../../../routes'
 
 type AppDispatch = ThunkDispatch<IRootState, any, IFetchCategories>; 
 
@@ -34,13 +35,13 @@ const AddCategory = () =>{
         event.preventDefault();
         
         dispatch(addCategory(data)).then(()=>{
-          history.push('/Admin/Products')
+          history.push(routes.products)
         })
       };
 
     return (
       <>
-        <Background backRoute="/Admin/Products" />
+        <Background backRoute={routes.products}/>
         <div className="add-category__container">
           <form onSubmit={submitHandler}>
             <input type="text" placeholder="name of category" onChange={(event) => inputHandler(event, "name")} />

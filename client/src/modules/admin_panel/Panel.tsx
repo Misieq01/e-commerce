@@ -3,6 +3,7 @@ import {Switch,Route} from 'react-router-dom'
 import {useDispatch} from 'react-redux'
 import {fetchAllProducts} from '../../store/actions/productActions'
 import { fetchAllCategories } from "../../store/actions/categoryActions";
+import {routes} from '../../routes'
 
 import Navigation from './Navigation'
 import Dashboard from './Dashboard/Dashboard'
@@ -26,10 +27,10 @@ const Panel = () =>{
       <div className="admin-panel__container">
         <Navigation />
         <Switch>
-          <Route path="/Admin/Dashboard" component={Dashboard} />
-          <Route path="/Admin/Orders" component={Orders} />
-          <Route path="/Admin/Products" component={ProductPanel} />
-          <Route path="/Admin/Customers" component={Customers} />
+          <Route path={routes.dashboard} component={Dashboard} />
+          <Route path={routes.orders} component={Orders} />
+          <Route path={routes.products} component={ProductPanel} />
+          <Route path={routes.customers} component={Customers} />
           {/* <Route path="/Admin/Content" component={Content} />
           <Route path="/Admin/Reports" component={Reports} /> */}
         </Switch>

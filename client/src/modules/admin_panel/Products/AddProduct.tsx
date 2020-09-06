@@ -6,6 +6,7 @@ import { addProduct } from "../../../store/actions/productActions";
 import { ICategoryDB } from "../../../store/types/categoryTypes";
 import { IRootState } from "../../../store/types/rootStateType";
 import { ThunkDispatch } from "redux-thunk";
+import {routes} from '../../../routes'
 
 import Background from "../../../components/Background";
 
@@ -60,13 +61,13 @@ const AddProduct = () => {
     formData.append("price", data.price.toString());
 
     dispatch(addProduct(formData)).then(() => {
-      history.push("/Admin/Products");
+      history.push(routes.products);
     });
   };
 
   return (
     <>
-      <Background backRoute="/Admin/Products" />
+      <Background backRoute={routes.products} />
       <div className="add-product__container">
         <form onSubmit={(event) => sumbitHandler(event)}>
           <input type="file" name="image" multiple onChange={(event) => imageHandler(event)} />
