@@ -9,7 +9,7 @@ import { ThunkDispatch } from "redux-thunk";
 
 import Background from "../../../components/Background";
 
-type AppDispatch = ThunkDispatch<IProduct, any, IFetchProducts>;
+type AppDispatch = ThunkDispatch<IRootState, any, IFetchProducts>;
 interface Idata extends IProduct {
   category: string
 }

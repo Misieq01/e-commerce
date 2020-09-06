@@ -1,20 +1,54 @@
 .admin-navigation{
+    &__background{
+        @include flex(column nowrap,center,center);
+        width: 12.5%;
+        height: 100%;
+        background: $blue-main; 
+    }
+    &__wrapper{
+        @include flex(column nowrap,space-between,center);
+        width: 100%;
+        height: 96%;
+    }
     &__container{
-        @include flex(column nowrap,space-evenly,center);
-        width: 150px;
-        height: 100vh;
-        background: rgb(51, 51, 51); 
+        @include flex(column nowrap,flex-start,center);
+        width: 100%;
+        height: 100%;
     }
     &__link{
         @include flex();
-        width: 150px;
-        height: 100px;
+        width: 100%;
+        padding: 15px 0px;
         color: $white;
         cursor: pointer;
+        &:hover{
+            background: $blue-hover;
+        }
+    }
+    &__link-wrapper-center{
+        @include flex(row nowrap,center, center);
+        width: 100%;
+        height: 100%;
+    }
+    &__link-wrapper-flex-start{
+        @include flex(row nowrap,flex-start, center);
+        width: 50%;
+        height: 100%;
+    }
+    &__link-icon{
+        fill: $white;
+        height: 18px;
+        width: 18px;
+        margin-right: 12px;
+    }
+    &__link-text{
+        color: $white;
+        font-size: 16px;
     }
     &__logo{
-        width: 75px;
-        height: 75px;
+        width: 65px;
+        height: 65px;
         fill:$white;
+        margin-bottom: 20px;
     }
 }

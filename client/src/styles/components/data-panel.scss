@@ -1,11 +1,23 @@
 .data-panel{
         &__container{
-        width: 40%;
         min-height: 60px;
         height: auto;
-        margin: 5px 0;
+        margin: 10px;
         border-radius: 5px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.24),0 2px 4px rgba(0,0,0,0.12);
+
+        &--big{
+            @extend .data-panel__container;
+            width: calc(100% - 20px);
+        }
+        &--medium{
+            @extend .data-panel__container;
+            width: calc(60% - 20px);
+        }
+        &--small{
+            @extend .data-panel__container;
+            width: calc(40% - 20px);
+        }
     }
     &__header{
         @include flex(row nowrap, space-between,center);
@@ -13,7 +25,8 @@
         height: 45px;
         background: rgb(255, 226, 131);
         border-radius: 5px 5px 0 0;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.12),0 2px 4px rgba(0,0,0,0.08);
+        // box-shadow: 0 1px 3px rgba(0,0,0,0.12),0 2px 4px rgba(0,0,0,0.08);
+        border-bottom: 1px solid rgba(0,0,0,0.08);
     }
     &__title{
         margin-left: 10px;
@@ -23,5 +36,18 @@
         margin-right: 10px;
         font-size: 14px;
         cursor: pointer;
+    }
+}
+.data-panel-element{
+        &__container{
+        @include flex(row nowrap,space-around);
+        width: 100%;
+        &:hover{
+            background: rgb(248,248,248);
+        }
+    }
+    &__img{
+        width: 100px;
+        height: 100px;
     }
 }

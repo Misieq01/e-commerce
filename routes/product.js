@@ -33,6 +33,7 @@ router.post("/AddProduct",[upload.array('image',8),Authentication], async (req, 
       ),
     };
     const product = new Product(productData);
+    await Product.populate(product,'category')
     await product.save((err) => {
       if (err) {
         console.log(err);

@@ -7,14 +7,15 @@ interface DataPanel {
   button?: boolean;
   buttonText?: string
   addLink?: string
+  size: string
 }
 
-const DataPanel = ({ children, title, button = false, buttonText,addLink = '' }: DataPanel) => {
+const DataPanel = ({ children, title, button = false, buttonText,addLink = '',size }: DataPanel) => {
 
     const history = useHistory()
 
   return (
-    <div className="data-panel__container">
+    <div className={"data-panel__container--" + size}>
       <div className="data-panel__header">
         <span className="data-panel__title">{title}</span>
         {button ? <div className="data-panel__add-button" onClick={() => history.push(addLink)}>

@@ -30,8 +30,8 @@ const Panel = () =>{
           <Route path="/Admin/Orders" component={Orders} />
           <Route path="/Admin/Products" component={ProductPanel} />
           <Route path="/Admin/Customers" component={Customers} />
-          <Route path="/Admin/Content" component={Content} />
-          <Route path="/Admin/Reports" component={Reports} />
+          {/* <Route path="/Admin/Content" component={Content} />
+          <Route path="/Admin/Reports" component={Reports} /> */}
         </Switch>
       </div>
     );

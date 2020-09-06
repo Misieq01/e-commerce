@@ -11,9 +11,11 @@ const Categories = () => {
     return <>
         {categories.map((e:ICategoryDB)=>{
             return (
-              <div className="admin-product-panel__container" key={e._id}>
-                {e.name}
-                {e.active}
+              <div className="data-panel-element__container" key={e._id}>
+                <div>{e.name}</div>
+                <div>{e.active ? "active" : "disabled"}</div>
+                <div>Edit</div>
+                <div>Delete</div>
               </div>
             );
         })}

@@ -4,9 +4,10 @@ import {useDispatch} from 'react-redux'
 import {ThunkDispatch} from 'redux-thunk'
 import {addCategory} from '../../../store/actions/categoryActions'
 import {ICategory,IFetchCategories} from '../../../store/types/categoryTypes'
+import {IRootState} from '../../../store/types/rootStateType'
 import Background from '../../../components/Background'
 
-type AppDispatch = ThunkDispatch<ICategory, any, IFetchCategories>; 
+type AppDispatch = ThunkDispatch<IRootState, any, IFetchCategories>; 
 
 
 const AddCategory = () =>{

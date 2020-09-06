@@ -6,12 +6,13 @@ import { ThunkAction } from "redux-thunk";
 
 import { IFetchCategories, IAddCategory, ICategory } from "../types/categoryTypes";
 import { IErrorMessage } from "../types/errorTypes";
+import {IRootState} from '../types/rootStateType'
 
 type TFetchAllCategories = IFetchCategories | IErrorMessage;
 
 export const fetchAllCategories: ActionCreator<ThunkAction<
   Promise<TFetchAllCategories>,
-  ICategory[],
+  IRootState,
   null,
   TFetchAllCategories
 >> = () => async (dispatch: Dispatch<TFetchAllCategories>) => {
@@ -21,6 +22,7 @@ export const fetchAllCategories: ActionCreator<ThunkAction<
       return dispatch({ type: "FETCH_CATEGORIES", payload: res.data });
     })
     .catch((err) => {
+      console.log(err)
       return dispatch({ type: "ERROR_MESSAGE", payload: "We couldn't fetch categories for you" });
     });
 };
@@ -28,7 +30,7 @@ export const fetchAllCategories: ActionCreator<ThunkAction<
 
 type TAddCategory = IAddCategory | IErrorMessage;
 
-export const addCategory: ActionCreator<ThunkAction<Promise<TAddCategory>, ICategory, null, TAddCategory>> = (
+export const addCategory: ActionCreator<ThunkAction<Promise<TAddCategory>, IRootState, null, TAddCategory>> = (
   category: ICategory
 ) => {
   return (dispatch: Dispatch<TAddCategory>) => {
@@ -39,6 +41,7 @@ export const addCategory: ActionCreator<ThunkAction<Promise<TAddCategory>, ICate
         return dispatch({ type: "ADD_CATEGORY", payload: res.data });
       })
       .catch((err) => {
+        console.log(err);
         return dispatch({ type: "ERROR_MESSAGE", payload: "Something went wrong with adding category" });
       });
   };

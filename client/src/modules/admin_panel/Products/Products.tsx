@@ -11,14 +11,17 @@ return (
   <>
     {products.map((e:IProductDB) => {
       return (
-        <div className="admin-product-panel__container" key={e._id}>
-          {e.name}
-          {e.description}
-          {e.category.name}
-          {e.price}
-          {e.images.map((el, i) => (
-            <img className="admin-product-panel__img" src={el} key={i} />
-          ))}
+        <div className="data-panel-element__container" key={e._id}>
+          <div>{e.name}</div>
+          <div>{e.description}</div>
+          <div>{e.category.name}</div>
+          <div>{e.price}</div>
+          <div>Show images</div>
+          {/* {e.images.map((el, i) => (
+            <img className="data-panel-element__img" src={el} key={i} />
+          ))} */}
+          <div>Edit</div>
+          <div>Delete</div>
         </div>
       );
     })}

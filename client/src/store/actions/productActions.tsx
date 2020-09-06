@@ -5,12 +5,13 @@ import { Dispatch, ActionCreator } from "redux";
 import { ThunkAction } from "redux-thunk";
 import { IFetchProducts, IAddProduct, IProduct } from "../types/productTypes";
 import { IErrorMessage } from "../types/errorTypes";
+import { IRootState } from "../types/rootStateType";
 
 type TFetchAllProducts = IFetchProducts | IErrorMessage;
 
 export const fetchAllProducts: ActionCreator<ThunkAction<
   Promise<TFetchAllProducts>,
-  IProduct[],
+  IRootState,
   null,
   TFetchAllProducts
 >> = () => async (dispatch: Dispatch<TFetchAllProducts>) =>
@@ -20,12 +21,13 @@ export const fetchAllProducts: ActionCreator<ThunkAction<
       return dispatch({ type: "FETCH_PRODUCTS", payload: res.data });
     })
     .catch((err) => {
+      console.log(err);
       return dispatch({ type: "ERROR_MESSAGE", payload: "We couldn't fetch products for you" });
     });
 
 type TAddProduct = IAddProduct | IErrorMessage;
 
-export const addProduct: ActionCreator<ThunkAction<Promise<TAddProduct>, IProduct, null, TAddProduct>> = (
+export const addProduct: ActionCreator<ThunkAction<Promise<TAddProduct>, IRootState, null, TAddProduct>> = (
   product: IProduct
 ) => async (dispatch: Dispatch<TAddProduct>) => {
   const config = {
@@ -41,6 +43,7 @@ export const addProduct: ActionCreator<ThunkAction<Promise<TAddProduct>, IProduc
       return dispatch({ type: "ADD_PRODUCT", payload: res.data });
     })
     .catch((err) => {
+      console.log(err);
       return dispatch({ type: "ERROR_MESSAGE", payload: "Something went wrong with adding product" });
     });
 };
