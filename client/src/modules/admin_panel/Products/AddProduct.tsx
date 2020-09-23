@@ -57,6 +57,8 @@ const AddProduct = () => {
     }
     formData.append("name", data.name);
     formData.append("description", data.description);
+    formData.append("quantity", data.quantity.toString());
+    formData.append("active", data.active.toString());
     formData.append("category", data.category);
     formData.append("price", data.price.toString());
 

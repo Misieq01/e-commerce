@@ -29,7 +29,7 @@ const Panel = () =>{
         <Switch>
           <Route path={routes.dashboard} component={Dashboard} />
           <Route path={routes.orders} component={Orders} />
-          <Route path={routes.products} component={ProductPanel} />
+          <Route path={routes.productsPanel} component={ProductPanel} />
           <Route path={routes.customers} component={Customers} />
           {/* <Route path="/Admin/Content" component={Content} />
           <Route path="/Admin/Reports" component={Reports} /> */}

@@ -9,7 +9,7 @@ const Categories = () => {
     const categories = useSelector((state:IRootState)=>state.categories.categories)
     
     return <>
-        {categories.map((e:ICategoryDB)=>{
+        {/* {categories.map((e:ICategoryDB)=>{
             return (
               <div className="data-panel-element__container" key={e._id}>
                 <div>{e.name}</div>
@@ -18,7 +18,7 @@ const Categories = () => {
                 <div>Delete</div>
               </div>
             );
-        })}
+        })} */}
     </>}
 
 export default Categories

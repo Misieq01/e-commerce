@@ -11,6 +11,7 @@ export interface ICategoryDB extends ICategory {
   _id: string;
 }
 
+
 export interface ICategoriesState {
     categories: ICategoryDB[]
 }

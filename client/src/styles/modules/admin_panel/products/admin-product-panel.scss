@@ -17,13 +17,14 @@
 }
 &__head-content-selector--wrapper{
     @include flex(column nowrap,center,center);
-    width: auto;
+    width: 240px;
     height: 40px;
 }
 &__head-content-selector--container{
     @include flex(row nowrap,flex-start,center);
     height: auto;
-    width: auto;
+    width: inherit;
+    cursor: pointer;
 }
 &__head-content-selector--icon{
     width: 24px;
@@ -41,6 +42,8 @@
         width: 10px;
         height: 10px;
         margin-left: 10px;
+        z-index: 10;
+        transition: all 0.2s ease-in-out;
 }
 &__head-button{
     @include flex();
@@ -60,9 +63,33 @@
  color: $white;
  font-size: 14px;
 }
+&__head-popup{
+    &__container{
+        position: absolute;
+        width: 100px;
+        height: auto;
+        border-radius: 6px;
+        box-shadow: 0 1px 5px rgba(0,0,0,0.12);
+        background: white
+    }
+    &__element{
+        width: calc(100% - 10px);
+        height: calc(100% - 20px);
+        font-size: 16px;
+        padding: 10px 5px;
+        cursor: pointer;
+        color: $black;
+        &:hover{
+            background: rgb(250,250,250);
+        }
+    }
+}
     &__body{
         width: 100%;
         height: 90%;
+    }
+    &__body-table{
+        
     }
     &__wrapper{
         width: calc(100% - 60px);

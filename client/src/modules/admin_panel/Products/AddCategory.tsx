@@ -35,13 +35,13 @@ const AddCategory = () =>{
         event.preventDefault();
         
         dispatch(addCategory(data)).then(()=>{
-          history.push(routes.products)
+          history.push(routes.categories)
         })
       };
 
     return (
       <>
-        <Background backRoute={routes.products}/>
+        <Background backRoute={routes.categories}/>
         <div className="add-category__container">
           <form onSubmit={submitHandler}>
             <input type="text" placeholder="name of category" onChange={(event) => inputHandler(event, "name")} />

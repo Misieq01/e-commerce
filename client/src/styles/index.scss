@@ -2,12 +2,15 @@
 @import './utilis.scss';
 @import './main.scss';
 @import './global.scss';
+@import './table.scss';
 
 @import './components/data-panel.scss';
 @import './components/background.scss';
+@import './components/search-bar.scss';
 
 @import './modules/admin_panel/admin_navigation.scss';
 @import './modules/admin_panel/admin_panel.scss';
+@import './modules/admin_panel/products/products.scss';
 @import './modules/admin_panel/products/add-product.scss';
 @import './modules/admin_panel/products/add-category.scss';
 @import './modules/admin_panel/products/admin-product-panel.scss';

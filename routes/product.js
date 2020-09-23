@@ -4,6 +4,7 @@ const Admin = require("../models/admins");
 const fs = require("fs");
 const path = require("path");
 const multer = require("multer");
+const e = require("express");
 const Authentication = require("../middleware/auth")("admin");
 
 const storage = multer.diskStorage({
@@ -40,7 +41,10 @@ router.post("/AddProduct",[upload.array('image',8),Authentication], async (req, 
         return;
       }
     });
-    res.status(200).send(product);
+        const p = products.map((e) => {
+          return { ...e._doc, category: e.category.name };
+        });
+    res.status(200).send(p);
   } catch (error) {
     res.send(error);
   }
@@ -48,8 +52,11 @@ router.post("/AddProduct",[upload.array('image',8),Authentication], async (req, 
 
 router.get("/GetAllProducts", async (req, res) => {
   try {
-    const products = await Product.find({}).populate('category');
-    res.status(200).send(products);
+    const products = await Product.find({}).populate('category')
+    const p = products.map((e) => {
+      return { ...e._doc, category: e.category.name };
+    });
+    res.status(200).send(p);
 
   } catch (error) {
     console.log(error)

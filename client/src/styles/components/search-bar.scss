@@ -1,0 +1,27 @@
+.search-bar {
+  &__container {
+    @include flex(row nowrap, flex-start);
+    width: 100%;
+    height: auto;
+    border: 1px solid rgba(100, 100, 100, 0.16);
+    margin: 15px 0;
+  }
+  &__input {
+    width: calc(100% - 40px);
+    height: auto;
+    background: white;
+    color: $black;
+    padding: 10px 20px 10px 0;
+    font-size: 14px;
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.48);
+      font-style: italic;
+    }
+  }
+  &__icon {
+    width: 18px;
+    height: 18px;
+    margin: 0 10px;
+    fill: rgba(0,0,0,0.48);
+  }
+}

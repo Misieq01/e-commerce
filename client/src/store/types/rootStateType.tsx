@@ -3,7 +3,7 @@ import {ICategoriesState} from './categoryTypes'
 import {IErrorState} from './errorTypes'
 
 export interface IRootState {
-    products: IProductsState,
-    categories: ICategoriesState,
-    error: IErrorState
+  products: IProductsState;
+  categories: ICategoriesState;
+  error: IErrorState;
 }
